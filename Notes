@@ -1,0 +1,79 @@
+REST && SPREAD 
+---------------
+
+Rest is syntactically identical to spread. 
+The rest operator in JS (...) means the rest of the elements form an array.
+
+for instance: 
+
+test = [1, 2, 3, 4, 5]
+const [first, second, ...remaiing]
+would output 1, 2, {3, 4, 5}
+
+Rest and spread can be used on both objects and arrays.
+
+COMPONENTS
+-----------
+In React components are function, that must either return markup (JSX) or null
+components should always be top level ele,elements.
+Each component contains it's own logic, data and appearance. 
+They are written in JSX.
+
+SEPERATION OF CONCERN
+----------------------
+React has a new paradigm for seperation of concern, rather than it being a single
+technology to a file, such as in traditional web develoment, it is now one 
+component to a file, icluding its styles and logic. This is still SOC but a
+different approach to it.
+
+STYLES
+-------
+React does not care how we style components
+Any way normal HTML can be styled, React can be styled.
+When using inliine styles, which should not really be used, just as in normal
+HTML, things like font-size become fontSize (camelised). They are also written
+as JS objets.
+
+PROPS
+------
+The order in which props are passed into a components is irrelivant.
+Antyning can be passed in as a prop. 
+If it is not a string, it must be passed in inside of {} (JavaScript mode).
+Props pass data down the components tree and commnicate between the parent and
+child components.
+Props are read only.
+Props are immutable and can only be changed by the parent. 
+Props are external to a component and state is internal to the component.
+
+DESTRUCURING PROPS
+-------------------
+When a proprs param exists for a components, the created object will exist even if it is empty.
+Rather than using the proprs param, as long as the name being used is identical to that of the props being passed, it can be destructured, or written as 
+{ objectName }
+Multiple props can be passed for destructuring, as long as the names still match with the values passed { objectNameOne,  objectNameTwo }
+
+JSX
+----
+Almost written the same as HTML
+{} is JS mode and can contain anythign that JS can use aside from statements.
+JSX produces a JS expression.
+It can only return one root element, if you need it too return more you have
+to use React fragments.
+
+REACT FRAGMENT
+---------------
+A fragment allows for more than a single root element to be returned from a component. The syntax is as follows, and must wrap arond the whole component. 
+<> </>
+Sometimes, when rendering a list for example, a fragment may need a key, and so will need to be written differently:
+<React.fragment key="abcdefg"><React.fragment>
+
+CONDITONAL RENDERING
+---------------------
+There are three main types of conditional renderig: 
+1) How wireing, exploiting the behavious of &&, this should only be used where
+the rendering condition can be evaluated as boolean, and even then should not be
+the go too solution for conditional rendering.
+2) Ternary, same as in jQuery, PHP and vanilla JS, good and safe solution, ideally used for rendering small pieces of JSX within a component.
+3) Early return, as components are simply functions, they can have multiple return statemenets, this can be used to render larger pieces of JSX or whole components.
+Returning null is a general practice for false conditons.
+ 
